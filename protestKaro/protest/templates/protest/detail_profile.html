@@ -1,0 +1,12 @@
+
+
+{% extends 'protest/base.html' %}
+{% block body %}
+
+    <title>{% block title %}Profile Detail{% endblock %}</title>
+
+
+    <h3>{{ profile.first_name }}</h3>
+    <h3>{{ profile.last_name }}</h3>
+
+{% endblock %}

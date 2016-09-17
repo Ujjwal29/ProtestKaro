@@ -1,0 +1,19 @@
+{% extends 'protest/base.html' %}
+{% block body %}
+    {{ post }}
+
+    <div>
+        <h3>Posted By - {{ post.profile_id }}</h3>
+        <h4>Posted On - {{ post.dateTime }}</h4>
+        <h4>Subject - {{ post.subject }}</h4>
+        <h4>Description - {{ post.description }}</h4>
+        <h4>In Support - {{ post.support_count }}</h4>
+        <h4>In Against - {{ post.against_count }}</h4>
+        <h4>In Neutral - {{ post.neutral_count }}</h4>
+        <h4>Organizing Committee - {{ post.organizing_committee }}</h4>
+        <h4>Incident - {{ post.incident }}</h4>
+        <h4>Concerned Authority - {{ post.concerned_authority }}</h4>
+    </div>
+
+
+{% endblock %}

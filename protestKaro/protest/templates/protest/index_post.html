@@ -1,0 +1,16 @@
+{% extends 'protest/base.html' %}
+{% block body %}
+
+{% if all_posts %}
+        <h3>Running Protests:</h3>
+            <ul>
+                {% for post in all_posts %}
+                <li ><a href="{% url 'protest:detail_post' post.id%}">{{ post.subject }}</a> </li>
+                {% endfor %}
+
+            </ul>
+
+    {% else %}
+        <h3>No Posts Yet!</h3>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- Loads the path to your static files-->
+{% extends 'protest/base.html' %}
+{% block body %}
+
+    {% if all_profiles %}
+        <h3>Here are all the profiles:</h3>
+            <ul>
+                {% for profile in all_profiles %}
+                <li><a href="{% url 'protest:detail_profile' profile.id%}">{{ profile.first_name }}</a> </li>
+                {% endfor %}
+
+            </ul>
+    {% else %}
+        <h3>No Profiles Yet!</h3>
+{% endif %}
+{% endblock %}

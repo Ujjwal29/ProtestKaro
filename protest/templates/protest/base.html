@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="200">
     <div class="container-fluid">
         <div class="navbar-header">
 
@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav navbar-center">
 
                 <li class="">
-                    <a href="#">
+                    <a href="{% url 'protest:post-create' %}">
                         <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>&nbsp; <strong>Start a Protest</strong>
                     </a>
                 </li>

@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django import forms
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -31,6 +32,9 @@ class Profile(models.Model):
     registered_on = models.DateField(auto_now_add=True)
     contact_no = models.IntegerField()
 
+    def get_absolute_url(self):
+        return reverse('protest:detail_profile', kwargs={'pk': self.pk})
+
     def __str__(self):
         s = self.first_name+" "+self.last_name
         return s
@@ -41,19 +45,23 @@ class Post(models.Model):
     subject = models.CharField(max_length=100)
     description = models.TextField()
 
-    support_count = models.IntegerField()
-    against_count = models.IntegerField()
-    neutral_count = models.IntegerField()
+    support_count = models.IntegerField(default=0)
+    against_count = models.IntegerField(default=0)
+    neutral_count = models.IntegerField(default=0)
 
     organizing_committee = models.CharField(max_length=100)
     age_group = models.CharField(max_length=25)
     dateTime = models.DateTimeField(auto_now_add=True)
     incident = models.TextField()
-    closed = models.BooleanField(default=0)
+    closed = models.BooleanField(default=1)
 
     picture = models.CharField(max_length=1000)
     tag = models.CharField(max_length=100)
     concerned_authority = models.CharField(max_length=100)
+
+    def get_absolute_url(self):
+        return reverse('protest:detail_post', kwargs={'pk': self.pk})
+
 
     def __str__(self):
         s = self.subject+" - " +str(self.support_count)+" - "+str(self.against_count)+" - "+self.organizing_committee+" - "+self.incident+" - "+self.tag+" - "+self.concerned_authority

@@ -1,11 +1,24 @@
+
+
 {% extends 'protest/base.html' %}
 {% block body %}
-
+    <title>{% block title %}Protests{% endblock %}</title>
 {% if all_posts %}
         <h3>Running Protests:</h3>
             <ul>
                 {% for post in all_posts %}
-                <li ><a href="{% url 'protest:detail_post' post.id%}">{{ post.subject }}</a> </li>
+                <li >
+
+
+                    <div class="card card-block text-xs-center" style="width: 40rem;" background="navy">
+                        <a href="{% url 'protest:detail_post' post.id%}" style="font-size: 30px">{{ post.subject }}</a>
+
+                        <p class="card-text">{{ post.description }}</p>
+                        <a href="#" class="btn btn-primary">Support <span class="badge">{{ post.support_count }}</span> </a>
+                        <a href="#" class="btn btn-danger">Go Against <span class="badge">{{ post.against_count }}</span> </a>
+                        <a href="#" class="btn btn-success">Neutral <span class="badge">{{ post.neutral_count }}</span> </a>
+                    </div>
+                </li>
                 {% endfor %}
 
             </ul>

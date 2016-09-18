@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from .models import Profile, Post
 from django.shortcuts import get_object_or_404
+from django.db.models import Avg
+from chartit import PivotChart, PivotDataPool
 # Create your views here.
 
 
@@ -28,3 +30,5 @@ def detail_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     context = {'post': post}
     return render(request, 'protest/detail_post.html', context)
+
+

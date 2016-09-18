@@ -1,19 +1,32 @@
-{% extends 'protest/base.html' %}
-{% block body %}
-    {{ post }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/snap.svg/0.1.0/snap.svg-min.js"></script>
+    {% extends 'protest/base.html' %}
+    {% block body %}
+        <title>{% block title %}Protest Detail{% endblock %}</title>
 
-    <div>
-        <h3>Posted By - {{ post.profile_id }}</h3>
-        <h4>Posted On - {{ post.dateTime }}</h4>
-        <h4>Subject - {{ post.subject }}</h4>
-        <h4>Description - {{ post.description }}</h4>
-        <h4>In Support - {{ post.support_count }}</h4>
-        <h4>In Against - {{ post.against_count }}</h4>
-        <h4>In Neutral - {{ post.neutral_count }}</h4>
-        <h4>Organizing Committee - {{ post.organizing_committee }}</h4>
-        <h4>Incident - {{ post.incident }}</h4>
-        <h4>Concerned Authority - {{ post.concerned_authority }}</h4>
+</head>
+<body>
+
+
+    <div class="jumbotron">
+        <div class="well">
+            <h3> By - <strong>{{ post.profile_id }}</strong></h3>
+            <h5><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Posted On - {{ post.dateTime }}</h5>
+            <h4>Subject - {{ post.subject }}</h4>
+            <h4>Description - {{ post.description }}</h4>
+
+            <h4>Organizing Committee - {{ post.organizing_committee }}</h4>
+            <h4>Incident - {{ post.incident }}</h4>
+            <h4>Concerned Authority - {{ post.concerned_authority }}</h4>
+
+            <a href="#" class="btn btn-primary">Support <span class="badge">{{ post.support_count }}</span> </a>
+            <a href="#" class="btn btn-danger">Go Against <span class="badge">{{ post.against_count }}</span> </a>
+            <a href="#" class="btn btn-success">Neutral <span class="badge">{{ post.neutral_count }}</span> </a>
+
+        </div>
     </div>
-
-
-{% endblock %}
+    {% endblock %}
+</body>
+</html>

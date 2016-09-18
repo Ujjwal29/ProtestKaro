@@ -4,9 +4,12 @@
 
     {% if all_profiles %}
         <h3>Here are all the profiles:</h3>
-            <ul>
+            <ul class="w3-ul w3-card-4">
                 {% for profile in all_profiles %}
-                <li><a href="{% url 'protest:detail_profile' profile.id%}">{{ profile.first_name }}</a> </li>
+                    <li>
+                        <a href="{% url 'protest:detail_profile' profile.id%}">{{ profile.first_name }}</a>
+                    </li>
+
                 {% endfor %}
 
             </ul>
